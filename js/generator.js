@@ -2,7 +2,7 @@ var tracery = require('tracery-grammar');
 var fs = require('fs');
 var g = require('./grammars');
 
-var grammar = tracery.createGrammar(g.grammars.complex);
+var grammar = tracery.createGrammar(g.grammars.ludicrous);
 grammar.addModifiers(tracery.baseEngModifiers);
 
 exports.generate = function() {
