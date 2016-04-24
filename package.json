@@ -1,0 +1,19 @@
+{
+  "name": "lazycoder",
+  "version": "1.0.0",
+  "description": "An automated pattern generator for Cyril.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "lazycoder": "js/index.js"
+  },
+  "author": "Dan Hett",
+  "license": "Do What The Fuck You Want (http://www.wtfpl.net/)",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "fs": "0.0.2",
+    "tracery-grammar": "^2.7.2"
+  }
+}
