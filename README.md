@@ -4,7 +4,7 @@ An experimental pattern generator for automated live visuals performance. Look m
 #### About
 Lazycoder is a small experimental Node application that generates completely original randomised Cyril live code patterns, and edits them automatically on the fly.
 
-The application logic is built on tracery.js, a story-grammar generation library by Kate Compton.
+The application logic is built on [tracery.js](https://github.com/galaxykate/tracery), a story-grammar generation library by [Kate Compton](https://twitter.com/GalaxyKate).
 
 Currently this is OSX only, as Cyril is OSX only. As and when it gets ported, this should ideally still work...
 

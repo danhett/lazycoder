@@ -8,7 +8,7 @@ grammar.addModifiers(tracery.baseEngModifiers);
 exports.generate = function() {
     console.log("Generating new pattern...");
 
-    fs.writeFile('cyril/data/code/0.cy', grammar.flatten('#origin#'), function (err) {
+    fs.writeFile('data/code/0.cy', grammar.flatten('#origin#'), function (err) {
       if (err) return console.log(err);
     });
 }
