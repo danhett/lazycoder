@@ -5,9 +5,48 @@ var g = require('./grammars');
 var grammar = tracery.createGrammar(g.grammars.cyril);
 grammar.addModifiers(tracery.baseEngModifiers);
 
-exports.generate = function() {
-    console.log("Generating new pattern...");
+var looping = false;
+var timer;
 
+/**
+ * Generates a single pattern, no loops.
+ */
+exports.generate = function() {
+    console.log("Generating single new pattern...\n");
+
+    generatePattern();
+}
+
+/**
+ * Starts the endless loop generation cycle
+ */
+exports.startLoop = function() {
+    console.log("Starting loop...");
+
+    generatePattern();
+    timer = setInterval(generatePattern, 5000);
+
+    looping = true;
+}
+
+/**
+ * Stops the endless loop generation cycle
+ */
+exports.stopLoop = function() {
+    if(looping) {
+        console.log("Stopping loop...");
+        clearInterval(timer);
+        looping = false;
+    }
+    else {
+        console.log("Currently not looping.");
+    }
+}
+
+/**
+ * Actual pattern generation, used in both modes.
+ */
+var generatePattern = function() {
     var output = grammar.flatten('#origin#');
     console.log(output);
 

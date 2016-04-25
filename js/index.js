@@ -23,13 +23,13 @@ program
 program
   .command('start')
   .action(function(req,optional) {
-    console.log('Starting lazycoder!');
+    gen.startLoop();
   });
 
 program
   .command('stop')
   .action(function(req,optional) {
-    console.log('Lazycoder stopped.');
+    gen.stopLoop();
   });
 
 program.parse(process.argv);
