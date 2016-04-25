@@ -7,13 +7,13 @@ var program = require('commander');
 program.version('1.0.0');
 
 /**
- * GENERATE
+ * ONCE
  * Creates a single pattern. This is mostly for testing.
  */
 program
-  .command('generate')
+  .command('once')
   .action(function(req,optional) {
-    gen.generate();
+    gen.once();
   });
 
 /**

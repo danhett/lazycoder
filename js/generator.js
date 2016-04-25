@@ -11,7 +11,7 @@ var timer;
 /**
  * Generates a single pattern, no loops.
  */
-exports.generate = function() {
+exports.once = function() {
     console.log("Generating single new pattern...\n");
 
     generatePattern();
