@@ -39,10 +39,11 @@ exports.grammars = {
 
     ludicrous: {
         origin : ["// This code was written by a computer.\n\n#pattern#"],
-        pattern : ["#rotation##background#\n#process#\n\n#colorselect#\n#transforms#\n#geom#"],
+        pattern : ["#rotation##background#\n#process#\n\n#stroke##colorselect#\n#transforms#\n#geom#"],
         rotation : ["", "rotate \n\n", "rotate #numlarge# \n\n"],
         background : ["background #color#"],
         process : ["fxP #numlarge##audio#", "fxK #numrand##audio#", "fxNW"],
+        stroke: ["noFill\nstroke #nummed##audio#\n\n"],
         colorselect : ["color #color#"],
         color : ["#digit1##digit2##digit2#, #digit1##digit2##digit2#, #digit1##digit2##digit2#"],
         digit1 : ["0","1","2"],
