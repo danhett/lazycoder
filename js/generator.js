@@ -24,7 +24,7 @@ exports.startLoop = function() {
     console.log("Starting loop...");
 
     generatePattern();
-    timer = setInterval(generatePattern, 5000);
+    timer = setInterval(generatePattern, 10000);
 
     looping = true;
 }

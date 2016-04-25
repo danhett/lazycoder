@@ -2,7 +2,7 @@ exports.grammars = {
 
     cyril: {
         origin : ["// This code was written by a computer.\n\n#patternroot#"],
-        patternroot : ["#rotation##background#\n\n#process#\n\n#stroke##colorselect#",
+        patternroot : ["#rotation##background#\n\n#process#\n\n#stroke##colorselect#\n#transforms#\n#geom#",
                        "#rotation##background#\n\n#process#\n\n#stroke##colorselect#\n\n#loop#",
                        "#rotation##background#\n\n#process#\n\n#stroke##colorselect#\n\n#tile#"],
         loop : ["#loopcount#\n#transforms#\n#geom#\nend"],
@@ -11,10 +11,12 @@ exports.grammars = {
         rotation : ["", "rotate \n\n", "rotate #numlarge# \n\n"],
         background : ["background #color#"],
         process : ["fxP #numlarge##audio#", "fxK #numrand##audio#", "fxNW"],
-        stroke: ["noFill\nstroke #nummed##audio#\n\n"],
+        stroke: ["noFill\nstroke #nummed##audio#\n\n", ""],
         colorselect : ["color #color#"],
         color : ["#digit1##digit2##digit2#, #digit1##digit2##digit2#, #digit1##digit2##digit2#",
-                 "#digit1##digit2##digit2##audio#, #digit1##digit2##digit2##audio#, #digit1##digit2##digit2##audio#"],
+                 "#digit1##digit2##digit2##audio#, #digit1##digit2##digit2##audio#, #digit1##digit2##digit2##audio#",
+                 "#colorfromlist#"],
+        colorfromlist : ["white", "gray", "black", "red", "green", "blue", "cyan", "magenta", "yellow", "aliceBlue", "antiqueWhite", "aqua", "aquamarine", "azure", "beige", "bisque", "blanchedAlmond", "blueViolet", "burlyWood", "cadetBlue", "chartreuse", "chocolate", "coral", "cornflowerBlue", "cornsilk", "crimson", "darkBlue", "darkCyan", "darkGoldenRod", "darkGray", "darkGrey", "darkGreen", "darkKhaki", "darkMagenta", "darkOliveGreen", "darkorange", "darkOrchid", "darkRed", "darkSalmon", "darkSeaGreen", "darkSlateBlue", "darkSlateGray", "darkSlateGrey", "darkTurquoise", "darkViolet", "deepPink", "deepSkyBlue", "dimGray", "dodgerBlue", "fireBrick", "floralWhite", "forestGreen", "fuchsia", "gainsboro", "ghostWhite", "gold", "goldenRod", "grey", "greenYellow", "honeyDew", "hotPink", "indianRed", "indigo", "ivory", "khaki", "lavender", "lavenderBlush", "lawnGreen", "lemonChiffon", "lightBlue", "lightCoral", "lightCyan", "lightGoldenRodYellow", "lightGray", "lightGrey", "lightGreen", "lightPink", "lightSalmon", "lightSeaGreen", "lightSkyBlue", "lightSlateGray", "lightSlateGrey", "lightSteelBlue", "lightYellow", "lime", "limeGreen", "linen", "maroon", "mediumAquaMarine", "mediumBlue", "mediumOrchid", "mediumPurple", "mediumSeaGreen", "mediumSlateBlue", "mediumSpringGreen", "mediumTurquoise", "mediumVioletRed", "midnightBlue", "mintCream", "mistyRose", "moccasin", "navajoWhite", "navy", "oldLace", "olive", "oliveDrab", "orange", "orangeRed", "orchid", "paleGoldenRod", "paleGreen", "paleTurquoise", "paleVioletRed", "papayaWhip", "peachPuff", "peru", "pink", "plum", "powderBlue", "purple", "rosyBrown", "royalBlue", "salmon", "sandyBrown", "seaGreen", "seaShell", "sienna", "silver", "skyBlue", "slateBlue", "slateGray", "slateGrey", "snow", "springGreen", "steelBlue", "tan", "teal", "thistle", "tomato", "turquoise", "violet", "wheat", "whiteSmoke", "yellowGreen"],
         digit1 : ["0","1","2"],
         digit2 : ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
         transforms : ["scale #nummed##audio#", "rotate #neg##numlarge##audio#", "move #neg##numsmall##audio#"],
