@@ -1,14 +1,20 @@
 exports.grammars = {
 
     cyril: {
-        origin : ["// This code was written by a computer.\n\n#pattern#"],
-        pattern : ["#rotation##background#\n#process#\n\n#stroke##colorselect#\n#transforms#\n#geom#"],
+        origin : ["// This code was written by a computer.\n\n#patternroot#"],
+        patternroot : ["#rotation##background#\n\n#process#\n\n#stroke##colorselect#",
+                       "#rotation##background#\n\n#process#\n\n#stroke##colorselect#\n\n#loop#",
+                       "#rotation##background#\n\n#process#\n\n#stroke##colorselect#\n\n#tile#"],
+        loop : ["#loopcount#\n#transforms#\n#geom#\nend"],
+        loopcount : ["do #numrand# times"],
+        tile : ["tile #nummed##audio#, #nummed##audio#, #nummed##audio#\n#transforms#\n#geom#\nend"],
         rotation : ["", "rotate \n\n", "rotate #numlarge# \n\n"],
         background : ["background #color#"],
         process : ["fxP #numlarge##audio#", "fxK #numrand##audio#", "fxNW"],
         stroke: ["noFill\nstroke #nummed##audio#\n\n"],
         colorselect : ["color #color#"],
-        color : ["#digit1##digit2##digit2#, #digit1##digit2##digit2#, #digit1##digit2##digit2#"],
+        color : ["#digit1##digit2##digit2#, #digit1##digit2##digit2#, #digit1##digit2##digit2#",
+                 "#digit1##digit2##digit2##audio#, #digit1##digit2##digit2##audio#, #digit1##digit2##digit2##audio#"],
         digit1 : ["0","1","2"],
         digit2 : ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
         transforms : ["scale #nummed##audio#", "rotate #neg##numlarge##audio#", "move #neg##numsmall##audio#"],
