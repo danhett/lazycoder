@@ -28,6 +28,7 @@ exports.grammars = {
         threedigits : ["#nummed##nummed##nummed#"],
         fourdigits : ["#nummed##nummed##nummed##nummed#"],
         numrand : ["1", "2", "3", "4", "5", "10", "20", "50", "100"],
+        spheredetailnumbers : ["3", "4", "5", "6", "7", "8", "10", "20"],
         numwave : ["#threedigits#", "#fourdigits#"],
         neg : ["", "-"],
         audio : ["", " + (#nummed# * #randaudio#)", " + (#nummed# * KICK)", " + (#nummed# * SNARE)", " + (#nummed# * HIHAT)",
@@ -35,7 +36,8 @@ exports.grammars = {
         audiomultiply : ["", " * #randaudio#", " * KICK", " * SNARE", " * HIHAT"],
         randaudio: ["fft(#fft#)"],
         fft: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"],
-        geom: ["box #nummed#", "box #nummed#, #nummed#, #nummed#", "peg #nummed#", "sphere #nummed#"],
+        geom: ["box #nummed#", "box #nummed#, #nummed#, #nummed#", "peg #nummed#", "#spheredetail#\nsphere #nummed#"],
+        spheredetail: ["sphereDetail #spheredetailnumbers#", "sphereDetail #spheredetailnumbers##audio#", "sphereDetail #spheredetailnumbers##audiomultiply#"],
         tilegeom: ["box #numtiny# + (#numtiny##audiomultiply#)", "box #numtiny# + (#numtiny##audiomultiply#), #numtiny# + (#numtiny##audiomultiply#), #numtiny# + (#numtiny##audiomultiply#)", "peg #numtiny# + (#numtiny##audiomultiply#)", "sphere #numtiny# + (#numtiny##audiomultiply#)"]
     },
 }
