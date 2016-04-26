@@ -1,7 +1,8 @@
 exports.grammars = {
 
     cyril: {
-        origin : ["// This code was written by a computer.\n\n#patternroot#"],
+        origin : ["// This code was written by a computer.\n\n#setuppallete##patternroot#"],
+        setuppallete : ["palette $p\n 30 #colorfromlist#\n 30 #colorfromlist#\n 30 #colorfromlist#\nend\n\n"],
         patternroot : ["#rotation##background#\n\n#process#\n\n#stroke##colorselect#\n#transforms#\n#geom#",
                        "#rotation##background#\n\n#process#\n\n#stroke##colorselect#\n\n#loop#",
                        "#rotation##background#\n\n#process#\n\n#stroke##colorselect#\n\n#tile#"],
@@ -15,7 +16,8 @@ exports.grammars = {
         colorselect : ["color #color#"],
         color : ["#digit1##digit2##digit2#, #digit1##digit2##digit2#, #digit1##digit2##digit2#",
                  "#digit1##digit2##digit2##audiomultiply#, #digit1##digit2##digit2##audiomultiply#, #digit1##digit2##digit2##audiomultiply#",
-                 "#colorfromlist#"],
+                 "#colorfromlist#",
+                 "#choosefrompalette#"],
         colorfromlist : ["white", "gray", "black", "red", "green", "blue", "cyan", "magenta", "yellow", "aliceBlue", "antiqueWhite", "aqua", "aquamarine", "azure", "beige", "bisque", "blanchedAlmond", "blueViolet", "burlyWood", "cadetBlue", "chartreuse", "chocolate", "coral", "cornflowerBlue", "cornsilk", "crimson", "darkBlue", "darkCyan", "darkGoldenRod", "darkGray", "darkGrey", "darkGreen", "darkKhaki", "darkMagenta", "darkOliveGreen", "darkorange", "darkOrchid", "darkRed", "darkSalmon", "darkSeaGreen", "darkSlateBlue", "darkSlateGray", "darkSlateGrey", "darkTurquoise", "darkViolet", "deepPink", "deepSkyBlue", "dimGray", "dodgerBlue", "fireBrick", "floralWhite", "forestGreen", "fuchsia", "gainsboro", "ghostWhite", "gold", "goldenRod", "grey", "greenYellow", "honeyDew", "hotPink", "indianRed", "indigo", "ivory", "khaki", "lavender", "lavenderBlush", "lawnGreen", "lemonChiffon", "lightBlue", "lightCoral", "lightCyan", "lightGoldenRodYellow", "lightGray", "lightGrey", "lightGreen", "lightPink", "lightSalmon", "lightSeaGreen", "lightSkyBlue", "lightSlateGray", "lightSlateGrey", "lightSteelBlue", "lightYellow", "lime", "limeGreen", "linen", "maroon", "mediumAquaMarine", "mediumBlue", "mediumOrchid", "mediumPurple", "mediumSeaGreen", "mediumSlateBlue", "mediumSpringGreen", "mediumTurquoise", "mediumVioletRed", "midnightBlue", "mintCream", "mistyRose", "moccasin", "navajoWhite", "navy", "oldLace", "olive", "oliveDrab", "orange", "orangeRed", "orchid", "paleGoldenRod", "paleGreen", "paleTurquoise", "paleVioletRed", "papayaWhip", "peachPuff", "peru", "pink", "plum", "powderBlue", "purple", "rosyBrown", "royalBlue", "salmon", "sandyBrown", "seaGreen", "seaShell", "sienna", "silver", "skyBlue", "slateBlue", "slateGray", "slateGrey", "snow", "springGreen", "steelBlue", "teal", "thistle", "tomato", "turquoise", "violet", "wheat", "whiteSmoke", "yellowGreen"],
         digit1 : ["0","1","2"],
         digit2 : ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
@@ -39,6 +41,7 @@ exports.grammars = {
         geom: ["box #nummed#", "box #nummed#, #nummed#, #nummed#", "peg #nummed#", "#spheredetail#\nsphere #nummed#", "#image#"],
         spheredetail: ["sphereDetail #spheredetailnumbers#", "sphereDetail #spheredetailnumbers##audio#", "sphereDetail #spheredetailnumbers##audiomultiply#"],
         tilegeom: ["box #numtiny# + (#numtiny##audiomultiply#)", "box #numtiny# + (#numtiny##audiomultiply#), #numtiny# + (#numtiny##audiomultiply#), #numtiny# + (#numtiny##audiomultiply#)", "peg #numtiny# + (#numtiny##audiomultiply#)", "sphere #numtiny# + (#numtiny##audiomultiply#)"],
-        image : ["img #nummed#"]
+        image : ["img #nummed#"],
+        choosefrompalette : ["lerp($p, #numtiny##audiomultiply#)"]
     },
 }
